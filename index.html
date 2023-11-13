@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bài 1</title>
+</head>
+
+<body>
+    <input type="number" id="inputA">
+    <input type="number" id="inputB">
+    <button onclick="SumPrimeNumber()">Enter</button>
+    <div id="resultSum"></div>
+
+    <script>
+        function isPrime(b) {
+
+            let prime = true;
+            if (b < 2) return prime = false;
+            let i = 2;
+            while (i < b) {
+                if (b % i == 0) {
+                    // prime = false;
+                    // break;
+                    return false
+                }
+                i++;
+            }
+            return true;
+        }
+        function SumPrimeNumber(a, b) {
+            var a = document.getElementById("inputA").value;
+            var b = document.getElementById("inputB").value;
+            a = Number(a)
+            b = Number(b)
+            // pa
+            if (a < 0 || b < 0) {
+                alert("a và b phải lớn hơn 0")
+            } else if (a > b) {
+                alert("a phải bé hơn b")
+            } else {
+
+                console.log(typeof(a), b)
+                let i = a + 1, isCurrentPrime = false, sumPrime = 0;
+                while (i < b) {
+
+                    if (isPrime(i)) sumPrime += i;
+                    ++i;
+                }
+
+                document.getElementById("resultSum").innerText = sumPrime
+                console.log(sumPrime);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
